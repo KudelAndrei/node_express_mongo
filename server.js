@@ -7,6 +7,7 @@ import bluebird from 'bluebird';
 
 import config from './config';
 import routes from './routes';
+import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 
@@ -31,3 +32,4 @@ app.use(session({
 }));
 
 app.use('/api', routes);
+app.use(errorHandler);
